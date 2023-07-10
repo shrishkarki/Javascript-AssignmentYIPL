@@ -11,6 +11,12 @@ html{
 body{
     background-color: rgb(138, 206, 138);
 }
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
 
 .container h1{
     font-size: 6rem;
@@ -19,9 +25,43 @@ body{
     word-spacing: 3rem;
     letter-spacing: 0.2rem;
     font-family: 'Kanit', sans-serif;
-    margin-top: 2rem;
     color: whitesmoke;
 }
+
+.projects{
+    display: flex;
+    justify-content: space-around;
+}
+
+.projects li{
+    font-size: 3.5rem;
+    color: whitesmoke;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease-in;
+    list-style-type: none;
+    
+}
+.projects li:hover{
+    transform:scale(1.1);
+}
+
+.projects li a{
+ padding: 1rem 2rem;
+ background-color: rgb(107, 199, 107);
+ cursor: pointer;
+ transition: all 0.2s ease-in;
+ text-decoration: none;
+ color: white;
+
+
+
+
+}
+.projects li a:hover{
+    background-color: rgb(78, 207, 78);
+   
+    }
 
 
 
