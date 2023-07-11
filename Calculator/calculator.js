@@ -9,19 +9,16 @@ let FinalResult;
 const contentValue = (e) => {
     if (e.target === resultEvaluate) {
         FinalResult = eval(inputvalue.value);
-
         inputvalue.value = FinalResult;
-
         return;
-
-
     }
+
 
     if (e.target === clearInput) {
         inputvalue.value = "";
-
         return;
     }
+
 
     if (e.target === remove) {
 
@@ -29,7 +26,6 @@ const contentValue = (e) => {
         arr.pop();
         let str = arr.join("");
         inputvalue.value = str;
-
         return;
     }
 
