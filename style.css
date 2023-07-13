@@ -64,7 +64,32 @@ body{
     }
 
 
-
-/* .container h1{
+.projects li{
+    font-size: 3.5rem;
+    color: whitesmoke;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease-in;
+    list-style-type: none;
     
-} */
+}
+.projects li:hover{
+    transform:scale(1.1);
+}
+
+.projects li a{
+ padding: 1rem 2rem;
+ background-color: rgb(107, 199, 107);
+ cursor: pointer;
+ transition: all 0.2s ease-in;
+ text-decoration: none;
+ color: white;
+
+
+
+
+}
+.projects li a:hover{
+    background-color: rgb(78, 207, 78);
+   
+    }
