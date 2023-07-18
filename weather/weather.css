@@ -1,0 +1,222 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+   
+}
+body{
+    font-family: 'Kanit', sans-serif;
+    font-size: 62.5%;
+    color: white;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    /* height: 100vh; */
+   
+    /* background-image:linear-gradient(0deg, rgba(59, 58, 58, 0.3), rgba(240, 160, 207, 0.3)),url("./assets/weatherBG.jpg");  */
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)),url("./assets/weatherBG.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* background-blend-mode: overlay; */
+    
+}
+
+
+body.night{
+    width: 100%;
+
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.5)),url("./assets/wind-night.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+.weather{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+
+}
+
+
+/* .weather__icon{
+    width: 7rem;
+    height: 6rem;
+    margin-top: 4px;
+    background-color: white; 
+    mask: url(./icons/8.svg) no-repeat center / contain;
+    -webkit-mask: url(./icons/8.svg) no-repeat center / contain;
+} */
+.weather__details{
+    box-shadow: 1px 1px 5px 1px rgb(173, 155, 155);
+    padding: 0 2rem;
+}
+
+.weather__icon img{
+    width: 9rem;
+    height: 6rem;
+}
+
+.weather figcaption{
+    font-size: 2rem;
+}
+
+.weather__city{
+    font-size: 1.2rem;
+}
+.weather__temp{
+    font-size: 2.8rem;
+}
+
+.weather__input{
+    text-align: center;
+}
+
+.weather__input label{
+    display: block;
+    font-size: 1.2rem;
+    
+    
+}
+
+
+.weather input{
+    display: block;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid #ffffff;
+    /* box-shadow: -1px -1px 1px 1px #eee5e5; */
+    color: white;
+    text-align: center;
+    
+    font-size: 1.7rem;
+    padding: 0.4rem 0.8rem;
+}
+
+::placeholder{
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    font-weight: 400;
+}
+
+
+/* hourly CSS */
+.hourly{
+    /* margin-top: 5rem; */
+    margin:0rem 5rem;
+    
+}
+.hourly__header{
+    display: flex;
+    border-bottom: 0.2rem solid white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.hourly h1{
+    font-size: 1.5rem;
+   
+  
+    /* border-bottom: 0.2rem solid white; */
+}
+.hourly__carousel i{
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.hourly__forecast{
+    display: flex;
+    
+    padding-top: 1rem;
+    overflow-x: hidden;
+   
+    /* column-gap: 1rem; */
+
+    
+    
+}
+.each__hour{
+   
+    flex: 0 0 calc(12.319% );
+   
+
+    text-align: center;
+    border: 1px solid rgb(173, 155, 155);
+    transition: transform 0.5s ease-in;
+    
+   
+}
+.each__hour:first-child{
+    box-shadow: 1px 1px 6px 2px rgb(173, 155, 155);
+}
+
+.each__hour:hover{
+    box-shadow: 1px 1px 6px 2px rgb(173, 155, 155);
+}
+.each__hour h3{
+    font-size: 1rem;
+   
+}
+
+/* for next 5 days */
+.days{
+    margin:0rem 5rem;
+    
+}
+.days__forecast{
+    display:  grid;
+
+}
+.days__forecast{
+    display:grid ;
+    text-align: center;
+   
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    column-gap: 2rem;
+   
+}
+
+.each__days{
+    margin: 1rem 0;
+padding: 1rem 0.5rem;
+/* box-shadow: -1px -1px 20px 10px black; */
+box-shadow: 1px 1px 5px 1px rgb(173, 155, 155);
+}
+
+.each__days h2{
+    font-size: 1.5rem;
+}
+.days h1{
+    font-size: 1.5rem;
+    padding: 1rem 0rem;
+  
+    border-bottom: 0.2rem solid white;
+}
+.days h4{
+    font-size: 0.9rem;
+    /* padding: 0.2rem 0; */
+}
+.day__night{
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    padding: 1rem 0;
+
+}
+.day__night div{
+    text-align: center;
+}
+.day__night div h3{
+    font-size: 1.1rem;
+}
+.day__night div figcaption{
+font-size: 1rem;
+}
+
