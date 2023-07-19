@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./weather.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<!-- js file -->
+<script src="./JS/weather.js" defer></script>
+
+</head>
+<body>
+    <div class="container-day">
+        <div class="weather">
+            <!-- <img src="./icons/3.png" alt=""> -->
+           <div class="weather__details">
+
+            <!-- background Icon -->
+             
+             <!-- <figure class="weather__icon"><img src="./icons/3.png" alt=""></figure>
+            <figcaption >Cloudy</figcaption>
+            <h4 class="weather__city"><i class="fa-solid fa-location-dot"></i> Butwal City</h4>
+            <h2 class="weather__temp">28&deg; C</h2> -->
+           </div>
+
+
+           <form class="weather__input"> 
+            <!-- <label for="user__input">Enter a location for weather information</label> -->
+            <input type="text" id="user__input" placeholder="Enter a location for weather information" autofocus autocomplete="off">
+          
+           </form>
+
+
+
+           <div class="weather__prediction">
+
+            <h1>Weather Report</h1>
+
+           </div>
+
+    
+        </div>
+
+        <!-- hourly forecast -->
+        <div class="hourly">
+            <div class="hourly__header">
+                <h1>Hourly Forecast &nbsp;  (For Next 12 Hours)</h1>
+
+                <div class="hourly__carousel">
+                    <i class="fa-regular fa-circle-left"></i> &nbsp; &nbsp;
+                    <i class="fa-regular fa-circle-right"></i>
+                </div>
+            </div>
+           
+
+            <div class="hourly__forecast">
+                <!-- <div class="each__hour"> -->
+                    <!-- <h3>1.00 PM</h3>
+                    <figure class=""><img src="./icons/3.png" alt=""></figure>
+                    <h2 class="">28&deg; C</h2> -->
+                <!-- </div> -->
+
+            </div>
+        </div>
+        <!-- next 5 days forecast -->
+        <div class="days">
+            <h1>For Next 4 Days Forecast</h1>
+
+            <div class="days__forecast">
+                <!-- <div class="each__days">
+                    <h2>Friday</h2>
+                    <h4>Min Temp: <span>20 &deg; C</span></h4>
+                    <h4>Max Temp: <span>20 &deg; C</span></h4>
+                    <div class="day__night">
+                        <div>
+                            <h3>Day</h3>
+                            <figure class=""><img src="./icons/3.png" alt=""></figure>
+                            <figcaption>Cloudy</figcaption>
+                        </div>
+                        <div>
+                            <h3>Night</h3>
+                            <figure class=""><img src="./icons/3.png" alt=""></figure>
+                            <figcaption>Thunderstome</figcaption>
+                        </div>
+                       
+                    </div>
+                </div> -->
+               
+             
+
+            </div>
+        </div>
+        
+
+    </div>
+    <script src="./JS/carousel.js" defer></script>
+</body>
+</html>
