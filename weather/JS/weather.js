@@ -29,7 +29,7 @@ const fahrenheitToCelsius=(fahrenheit) =>{
 
 const getCity = async (city) => {
 
-  const baseUrlCity = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`;
+  const baseUrlCity = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`;
 
   const response = await fetch(baseUrlCity);
   console.log("API called");
@@ -44,7 +44,7 @@ const getCity = async (city) => {
 }
 
 const getWeather = async (id) => {
-  const baseUrlWeather = `http://dataservice.accuweather.com/currentconditions/v1/${id}?apikey=${key}`;
+  const baseUrlWeather = `https://dataservice.accuweather.com/currentconditions/v1/${id}?apikey=${key}`;
 
   const response = await fetch(baseUrlWeather);
   if (response.status !== 200) {
@@ -58,7 +58,7 @@ const getWeather = async (id) => {
 
 }
 const getHoursWeather = async (city) => {
-  const baseUrlHrs = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${key}`;
+  const baseUrlHrs = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${key}`;
 
   const response = await fetch(baseUrlHrs);
   if (response.status !== 200) {
@@ -73,7 +73,7 @@ const getHoursWeather = async (city) => {
 }
 
 const getDaysWeather=async(city)=>{
-  const baseUrlDays=`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${key}`;
+  const baseUrlDays=`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${key}`;
   const response=await fetch(baseUrlDays);
   if(response.status !== 200){
     throw new Error("error Found");
