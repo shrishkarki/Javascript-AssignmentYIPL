@@ -5,7 +5,7 @@ const container=document.querySelector(".container-day");
 const body = document.querySelector('body');
 
 
-const key = "N2916KY0CjSCBORf2avzfCM2saTuV2CB";
+const key = "OpZeI19w5sb5JGvhuYrLAEwmrB7B9H9x";
 
 // const weatherCondition=document.querySelector("figcaption");
 // const cityName=document.querySelector(".weather__city");
