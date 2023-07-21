@@ -1,3 +1,7 @@
+const key = "g43VckUx1yRtUpTKMWtpzQoIpMUdEGKQ";
+
+
+
 const cityForm = document.querySelector("form");
 const cityInput = document.getElementById("user__input");
 const container=document.querySelector(".container-day");
@@ -5,19 +9,24 @@ const container=document.querySelector(".container-day");
 const body = document.querySelector('body');
 
 
-const key = "N2916KY0CjSCBORf2avzfCM2saTuV2CB";
 
-// const weatherCondition=document.querySelector("figcaption");
-// const cityName=document.querySelector(".weather__city");
-// const temp=document.querySelector(".weather__temp");
+
 
 const weatherDetails = document.querySelector(".weather__details");
+const weatherPrediction=document.querySelector(".weather__prediction");
 const weatherIcon = document.querySelector(".weather__icon");
 const eachHour = document.querySelector(".each__hour");
+const hourly=document.querySelector(".hourly");
+
 const hourlyForecast = document.querySelector(".hourly__forecast");
 
-const daysForecast=document.querySelector(".days__forecast");
+const days=document.querySelector(".days");
 
+const daysForecast=document.querySelector(".days__forecast");
+console.log(weatherDetails.innerHTML);
+
+// if(weatherDetails.innerHTML){
+  
 
 
 
@@ -29,7 +38,7 @@ const fahrenheitToCelsius=(fahrenheit) =>{
 
 const getCity = async (city) => {
 
-  const baseUrlCity = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`;
+  const baseUrlCity = `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${key}&q=${city}`;
 
   const response = await fetch(baseUrlCity);
   console.log("API called");
@@ -44,7 +53,7 @@ const getCity = async (city) => {
 }
 
 const getWeather = async (id) => {
-  const baseUrlWeather = `http://dataservice.accuweather.com/currentconditions/v1/${id}?apikey=${key}`;
+  const baseUrlWeather = `https://dataservice.accuweather.com/currentconditions/v1/${id}?apikey=${key}&details=true`;
 
   const response = await fetch(baseUrlWeather);
   if (response.status !== 200) {
@@ -58,7 +67,7 @@ const getWeather = async (id) => {
 
 }
 const getHoursWeather = async (city) => {
-  const baseUrlHrs = `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${key}`;
+  const baseUrlHrs = `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${city}?apikey=${key}`;
 
   const response = await fetch(baseUrlHrs);
   if (response.status !== 200) {
@@ -73,7 +82,7 @@ const getHoursWeather = async (city) => {
 }
 
 const getDaysWeather=async(city)=>{
-  const baseUrlDays=`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${key}`;
+  const baseUrlDays=`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${city}?apikey=${key}`;
   const response=await fetch(baseUrlDays);
   if(response.status !== 200){
     throw new Error("error Found");
@@ -108,9 +117,18 @@ const updateCity = async (city) => {
 const updataUI = (data) => {
   const { cityInfo, weatherInfo, weatherHours,daysWeather } = data;
 
-
-  const next8hrs=weatherHours;
+console.log(weatherInfo);
+  const next12hrs=weatherHours;
   const next4days=daysWeather.DailyForecasts.slice(1,5);
+
+
+  if(cityInfo){
+    weatherDetails.style.visibility="visible";
+    hourly.style.display="block";
+    days.style.display="block";
+  }
+
+ 
   hourlyForecast.innerHTML="";
  
   daysForecast.innerHTML="";
@@ -131,6 +149,7 @@ const updataUI = (data) => {
       };
 
   const weatherCondition=weatherInfo.WeatherText.toLowerCase();
+  
 
 
   const changeBodyBackground=(dayImg,nightImg)=>{
@@ -139,9 +158,11 @@ const updataUI = (data) => {
       
      
       body.style.backgroundImage = dayImg;
+      body.style.height = "100%";
     }
     else{
       body.style.backgroundImage = nightImg;
+      body.style.height = "100%";
     }
     
   }
@@ -171,12 +192,32 @@ const updataUI = (data) => {
              <h2 class="weather__temp">${weatherInfo.Temperature.Metric.Value}&deg; C</h2>
     `;
 
+    weatherPrediction.innerHTML=`
+     <li><i class="fa-solid fa-droplet"></i>  Humidity <span>${weatherInfo.RelativeHumidity}%</span></li>
+     <li><i class="fa-solid fa-gauge-high"></i>  Pressure  <span>${weatherInfo.Pressure.Imperial.Value} ${weatherInfo.Pressure.Imperial.Unit}</span></li>
+     <li><i class="fa-solid fa-wind"></i> WindSpeed <span>${weatherInfo.Wind.Speed.Metric.Value} ${weatherInfo.Wind.Speed.Metric.Unit}</span></li>
+    
+     <li><i class="fa-brands fa-cloudversify"></i>  Cloud Cover <span>${weatherInfo.CloudCover}% </span></li>
+    `;
+  
+
+  //   weatherPrediction.innerHTML=`
+  //   <li>Humidity ${weatherInfo.RelativeHumidity}</li>
+  //   <li>Humidity ${weatherInfo.RelativeHumidity}</li>
+
+  // <li>Dew Point ${weatherInfo.DewPoint.Metric.Value}%</li>
+  // <li>Wind Gust ${weatherInfo.WindGust.Speed.Metric.Value} ${weatherInfo.WindGust.Speed.Metric.Unit}</li>
+   
+   
+  //  `;
+
 
 
 
     // for next eight hours
+    
 
-    next8hrs.forEach((eachItem) => {
+    next12hrs.forEach((eachItem) => {
    
 
     let date = new Date(eachItem.DateTime);
@@ -189,6 +230,7 @@ const updataUI = (data) => {
     const iconSrc = `icons/${eachItem.WeatherIcon}.png`;
   
     const temp=fahrenheitToCelsius(eachItem.Temperature.Value);
+    
     
     hourlyForecast.innerHTML += `
                    <div class="each__hour">
@@ -217,6 +259,8 @@ const updataUI = (data) => {
 
     const dayIcon=`icons/${eachItem.Day.Icon}.png`;
     const nightIcon=`icons/${eachItem.Night.Icon}.png`;
+
+   
    
     daysForecast.innerHTML+=`
     <div class="each__days">
@@ -269,10 +313,57 @@ function handleInput(city) {
 
 const debouncedHandleInput = debounce(handleInput);
 
-cityInput.addEventListener('input',(event)=>{
+cityInput && cityInput.addEventListener('input',(event)=>{
   const cityName=event.target.value;
   debouncedHandleInput(cityName);
 });
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      // Success callback
+      const baseCurrentPosition=`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${latitude},${longitude}`;
+
+      const response=await fetch(baseCurrentPosition);
+      const data=await response.json();
+
+      cityInput.value=data.EnglishName;
+      debouncedHandleInput(data.EnglishName);
+    },
+    error => {
+      
+      console.log('Error:', error.message);
+      window.location.href = '../error.html';
+    }
+  );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

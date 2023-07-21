@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="./weather.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -12,7 +13,10 @@
 
 
 <!-- js file -->
+<!-- <script src="./JS/currentLocation.js" defer="false"></script> -->
 <script src="./JS/weather.js" defer></script>
+<script src="./JS/carousel.js" defer></script>
+
 
 </head>
 <body>
@@ -21,12 +25,7 @@
             <!-- <img src="./icons/3.png" alt=""> -->
            <div class="weather__details">
 
-            <!-- background Icon -->
-             
-             <!-- <figure class="weather__icon"><img src="./icons/3.png" alt=""></figure>
-            <figcaption >Cloudy</figcaption>
-            <h4 class="weather__city"><i class="fa-solid fa-location-dot"></i> Butwal City</h4>
-            <h2 class="weather__temp">28&deg; C</h2> -->
+           
            </div>
 
 
@@ -38,11 +37,19 @@
 
 
 
-           <div class="weather__prediction">
+           <!-- <div class="weather__prediction"> -->
 
-            <h1>Weather Report</h1>
+           <ul class="weather__prediction">
+            <!-- <li>Humidity </li>
+            <li>Pressure </li>
+            <li>WindSpeed</li>
+            <li>Dew Point</li>
+            <li>Wind Gust</li>
+            <li>Cloud Cover</li> -->
+           </ul>
+          
 
-           </div>
+           <!-- </div> -->
 
     
         </div>
@@ -99,6 +106,6 @@
         
 
     </div>
-    <script src="./JS/carousel.js" defer></script>
+   
 </body>
 </html>

@@ -1,6 +1,6 @@
 const leftBtn=document.querySelector(".fa-circle-left");
 const rightBtn=document.querySelector(".fa-circle-right");
-const hourly=document.querySelector(".hourly__forecast");
+
 
 
 
