@@ -379,7 +379,7 @@ cityInput && cityInput.addEventListener('input', (event) => {
         // console.log(apiUrl)
   
   
-        const baseCurrentPosition = `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${latitude},${longitude}`;
+        const baseCurrentPosition = `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${key}&q=${latitude},${longitude}`;
   
         const response = await fetch(baseCurrentPosition);
         const data = await response.json();
