@@ -85,7 +85,7 @@ body.night{
 
 .weather input{
     display: block;
-    width: 100%;
+    /* width: 100%; */
     border: none;
     outline: none;
     background-color: transparent;
@@ -108,6 +108,7 @@ body.night{
 .weather__prediction{
     box-shadow: 1px 1px 5px 1px rgb(173, 155, 155);
     padding: 1rem 2rem 0rem 2rem;
+    visibility: hidden;
 }
 .weather__prediction li{
 list-style: none;
@@ -163,7 +164,7 @@ margin-bottom: 1rem;
 }
 .each__hour{
    
-    flex: 0 0 calc(12.319% );
+    flex: 0 0 calc(12.5% - 2px);
    
 
     text-align: center;
